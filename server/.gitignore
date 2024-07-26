@@ -1,0 +1,3 @@
+src/routes/certsCA/
+.env
+node_modules

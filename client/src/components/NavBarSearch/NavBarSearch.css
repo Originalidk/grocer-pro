@@ -1,0 +1,9 @@
+@keyframes fade-in {
+    0% { opacity: 0; }
+    66% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.fade-in-animation {
+    animation: fade-in 3s forwards;
+}

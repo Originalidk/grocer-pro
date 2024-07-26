@@ -1,0 +1,22 @@
+.rounded-bottom-right {
+    border-radius: 0% 0% 75% 0%;
+}
+
+@keyframes fade-in {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes move-up {
+    0% { margin-top: 7.5rem; }
+    100% { margin-top: 2.75rem; }
+}
+
+.move-up-fade-in-animation {
+    opacity: 0;
+    margin-top: 7.5rem;
+}
+
+.visible .move-up-fade-in-animation {
+    animation: move-up 1s forwards, fade-in 2s forwards;
+}
