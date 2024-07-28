@@ -78,6 +78,12 @@ const Search = () => {
         setCurrentPage(page);
     };
 
+    const onKeyDownHandler = (event: React.KeyboardEvent<HTMLInputElement>) => {
+      if (event.key === 'Enter') {
+        handleSearch();
+      }
+    }
+
     const navbarSearchProps: NavBarSearchProps = {search, setSearch, handleSearch};
     
     const sideBarProps: SideBarProp = {checkSuperMarket, setCheckSuperMarket};
@@ -145,7 +151,7 @@ const Search = () => {
                     <div className='h-1/2 w-full flex flex-col justify-center items-center mb-[13%]'>
                       <h1 className="text-6xl font-bold text-white">Search Products</h1>
                       <div className='flex flex-row items-center mt-12'>
-                          <Input type="text" placeholder="Search..." value={search} onChange={(event) => setSearch(event.target.value)} className='h-12 w-[384px]' />
+                          <Input type="text" placeholder="Search..." value={search} onChange={(event) => setSearch(event.target.value)} onKeyDown={onKeyDownHandler} className='h-12 w-[384px]' />
                           <button onClick={() => handleSearch()} className="ml-4 border-2 py-2 px-4 rounded-lg text-lg text-white hover:bg-white hover:border-green-900 hover:text-green-700">Search</button>
                       </div>
                     </div>

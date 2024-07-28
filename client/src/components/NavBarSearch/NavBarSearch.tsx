@@ -23,6 +23,12 @@ const NavBarSearch = (props: NavBarSearchProps) => {
       }
   };
 
+  const onKeyDownHandler = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === 'Enter') {
+      handleSearch();
+    }
+  }
+
   if (typeof window !== "undefined") {
     window.addEventListener("scroll", changeNavbarColor);
   }
@@ -35,7 +41,7 @@ const NavBarSearch = (props: NavBarSearchProps) => {
           <h1 className="ml-2 text-3xl font-bold text-white">Grocer Pro</h1>
         </div>
         <div className='flex flex-row items-center ml-5'>
-          <Input type='text' placeholder='Search...' value={search} onChange={(event) => setSearch(event.target.value)} className='h-[40px] w-[300px] fade-in-animation' />
+          <Input type='text' placeholder='Search...' value={search} onChange={(event) => setSearch(event.target.value)} onKeyDown={onKeyDownHandler} className='h-[40px] w-[300px] fade-in-animation' />
           <button onClick={() => handleSearch()} className="ml-2 border-2 py-2 px-4 rounded-lg text-sm text-white hover:bg-white hover:border-green-900 hover:text-green-700 fade-in-animation">Search</button>
         </div>
         <div className='h-full w-[45%] flex flex-row justify-center items-center'>
