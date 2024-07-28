@@ -9,7 +9,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const fairpriceRouter = require('./routes/markets.ts');
+const fairpriceRouter = require('./routes/markets');
 app.use("/markets", fairpriceRouter);
 
 const port = process.env.PORT || 3001;
