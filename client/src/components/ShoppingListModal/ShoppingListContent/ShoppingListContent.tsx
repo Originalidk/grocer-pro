@@ -1,11 +1,5 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { ShoppingListContentProp } from './ShoppingListContent.type';
-import { useAppDispatch } from '@/redux/hooks';
-import { ProductCardProps } from '@/components/ProductCard/ProductCard.type';
-import { addProduct, removeProduct } from '@/redux/features/ShoppingListModal.slice';
-import { parseCorrectPrice } from '@/utils/price';
-import Image from 'next/image';
-import axios from 'axios';
 import ShoppingListItem from './ShoppingListItem/ShoppingListItem';
 
 function ShoppingListContent(props: ShoppingListContentProp) {

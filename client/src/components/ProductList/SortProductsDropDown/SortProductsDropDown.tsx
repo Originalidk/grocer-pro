@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import {
     Select,
     SelectContent,
@@ -9,9 +9,6 @@ import {
     SelectValue,
   } from "@/components/ui/select"
 import { SortProductDropDownProp } from './SortProductsDropDown.type'
-import Image from 'next/image'
-import DefaultIcon from "@/../public/default-alphabet.svg";
-import CoinIcon from "@/../public/coin.svg";
 import { BookA, CircleDollarSign } from 'lucide-react';
 
 const SortProductsDropDown = (props: SortProductDropDownProp) => {

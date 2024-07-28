@@ -61,7 +61,7 @@ const Search = () => {
         setRecentSearch(search);
         setShowProductList(true);
         setCurrentPage(1);
-        const response = await axios.get(`http://localhost:3001/markets?search=${search}`);
+        const response = await axios.get(`${process.env.NEXT_BACKEND_URL}/markets?search=${search}`);
         setShopProductList(response.data);
         let listOfProducts: Array<ProductCardProps> = [];
         if (selectedSort === 'price-low' || selectedSort === 'price-high') {
