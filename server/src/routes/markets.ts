@@ -1,9 +1,8 @@
-import express, { Request, Response } from 'express';
+const express = require('express');
+import { Request, Response } from 'express';
 import { IError, MarketResults, ProductInfo } from './markets.type';
 import getFairPriceProducts from './fairprice/fairprice'
 import getColdStorageProducts from './coldstorage/coldstorage';
-import getFairPriceProductsSlowly from './fairprice/fairpriceSlow';
-import getColdStorageProductsSlowly from './coldstorage/coldstorageSlow';
 import {getShengSiongProducts, getShengSiongImage} from './shengsiong/shengsiong';
 
 const router = express.Router();
@@ -38,7 +37,7 @@ router.get("/", async (req: Request, res: Response) => {
     }
 })
 
-router.get("/shengshiong/img/:key", async (req: Request, res, Response) => {
+router.get("/shengshiong/img/:key", async (req: Request, res: Response) => {
     try {
         const key: string = req.params.key;
         const response = await getShengSiongImage(key);
