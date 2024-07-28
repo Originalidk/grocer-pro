@@ -10,11 +10,13 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const fairpriceRouter = require(path.resolve(__dirname, './routes/markets'));
+const fairpriceRouter = require(path.resolve(__dirname, './routes/markets.ts'));
 app.use("/markets", fairpriceRouter);
 
-app.listen(Number(process.env.PORT) || 3001, () => {
+const port = process.env.PORT || 3001;
+
+app.listen(port, () => {
     if (process.env.ENV !== 'test') {
-        console.log(`Server listening on port ${process.env.PORT}`)
+        console.log(`Server listening on port ${port}`)
     }
 });
