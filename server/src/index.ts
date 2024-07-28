@@ -12,6 +12,6 @@ app.use(express.json());
 const fairpriceRouter = require('./routes/markets');
 app.use("/markets", fairpriceRouter);
 
-app.listen(process.env.PORT, process.env.HOST, () => {
-    console.log("Server listening on port 3001")
+app.listen(process.env.PORT, () => {
+    console.log(`Server listening on port ${process.env.PORT}`)
 });
