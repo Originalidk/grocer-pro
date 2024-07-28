@@ -18,7 +18,7 @@ export const showShoppingListSlice = createSlice({
     }
 })
 
-const shoppingListInitialValue: string = "{}";
+const shoppingListInitialValue: ShoppingListProducts = {};
 
 export const shoppingListProductsSlice = createSlice({
     name: 'shoppingListProducts',
@@ -26,33 +26,34 @@ export const shoppingListProductsSlice = createSlice({
       value: shoppingListInitialValue
     },
     reducers: {
-      addProduct: (state, action: PayloadAction<string>) => {
-        const product = JSON.parse(action.payload);
-        const key: string = `${product.shop}-${product.name}-${product.id}`
-        const deserialisedState = JSON.parse(state.value);
-        if (key in deserialisedState) {
-            const shoppingListProduct: ShoppingListProduct = deserialisedState[key]
-            shoppingListProduct.count++;
+      addProduct: (state, action: PayloadAction<ProductCardProps>) => {
+        // Keep state immutable
+        state.value = JSON.parse(JSON.stringify(state.value));
+        const product: ProductCardProps = action.payload;
+        const key: string = `${product.shop}-${product.name}-${product.units}-${product.price}-${product.images[0]}`
+        if (key in state.value) {
+            const shoppingListProduct: ShoppingListProduct = state.value[key]
+            shoppingListProduct.count = Math.round(shoppingListProduct.count + 1);
         } else {
-            deserialisedState[key] = {
+          state.value[key] = {
                 product: product,
                 count: 1,
             }
         }
-        state.value = JSON.stringify(deserialisedState);
+        state.value = JSON.parse(JSON.stringify(state.value));
       },
-      removeProduct: (state, action: PayloadAction<string>) => {
-        const product = JSON.parse(action.payload);
-        const key: string = `${product.shop}-${product.name}-${product.id}`
-        const deserialisedState = JSON.parse(state.value);
-        if (key in deserialisedState) {
-            const shoppingListProduct: ShoppingListProduct = deserialisedState[key]
-            shoppingListProduct.count--;
+      removeProduct: (state, action: PayloadAction<ProductCardProps>) => {
+        // Keep state immutable
+        state.value = JSON.parse(JSON.stringify(state.value));
+        const product = action.payload;
+        const key: string = `${product.shop}-${product.name}-${product.units}-${product.price}-${product.images[0]}`
+        if (key in state.value) {
+            const shoppingListProduct: ShoppingListProduct = state.value[key]
+            shoppingListProduct.count = Math.round(shoppingListProduct.count - 1);
             if (shoppingListProduct.count == 0) {
-                delete deserialisedState[key];
+                delete state.value[key];
             }
         }
-        state.value = JSON.stringify(deserialisedState);
       },
     }
 })

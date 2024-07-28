@@ -13,14 +13,7 @@ export const flattenShopProductList = (shopProductList: ShopProductList): Array<
         if (shop.length === 0) {
             return [];
         }
-        let id = 0;
-        return shop.map((product) => {
-            id++;
-            return {
-                id: id,
-                ...product,
-            };
-        });
+        return filterRepeatedProducts(shop);
     });
 }
 
@@ -31,17 +24,26 @@ export const flattenShopProductListDefault = (shopProductList: ShopProductList, 
             return [];
         }
         let rank: number = 1
-        return shop.map((product) => {
+        return filterRepeatedProducts(shop).map((product) => {
             if (!productRankInShop[product.shop]) {
                 productRankInShop[product.shop] = {}
             }
             productRankInShop[product.shop][product.name] = rank;
             rank++;
-            return {
-                id: rank - 1,
-                ...product,
-            };
+            return product;
         });
+    });
+}
+
+export const filterRepeatedProducts = (shopProducts: Array<ProductCardProps>): Array<ProductCardProps> => {
+    const checkUnique = new Set();
+    return shopProducts.filter((product) => {
+        const key: string = `${product.shop}-${product.name}-${product.units}-${product.price}-${product.images[0]}`
+        if (checkUnique.has(key)) {
+            return false;
+        }
+        checkUnique.add(key)
+        return true;
     });
 }
 

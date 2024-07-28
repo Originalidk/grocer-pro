@@ -12,6 +12,7 @@ import { SortProductDropDownProp } from './SortProductsDropDown.type'
 import Image from 'next/image'
 import DefaultIcon from "@/../public/default-alphabet.svg";
 import CoinIcon from "@/../public/coin.svg";
+import { BookA, CircleDollarSign } from 'lucide-react';
 
 const SortProductsDropDown = (props: SortProductDropDownProp) => {
     const { selectedSort, setSelectedSort } = props
@@ -26,19 +27,19 @@ const SortProductsDropDown = (props: SortProductDropDownProp) => {
           <SelectLabel>Sort Products</SelectLabel>
           <SelectItem value="default">
             <div className='flex flex-row'>
-                <Image src={DefaultIcon} alt='coin' width='16' className="mr-1" />
-                <p>Default</p>
+              <BookA className="h-4 w-auto mr-1" />
+              <p>Default</p>
             </div>
           </SelectItem>
           <SelectItem value="price-low">
             <div className='flex flex-row'>
-              <Image src={CoinIcon} alt='coin' width='16' className="mr-1" />
+              <CircleDollarSign className="h-4 w-auto mr-1" />
               <p>Price &#40;low to high&#41;</p>
             </div>
           </SelectItem>
           <SelectItem value="price-high">
             <div className='flex flex-row'>
-              <Image src={CoinIcon} alt='coin' width='16' className="mr-1" />
+              <CircleDollarSign className="h-4 w-auto mr-1" />
               <p>Price &#40;high to low&#41;</p>
             </div>
           </SelectItem>

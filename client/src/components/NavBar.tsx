@@ -5,6 +5,7 @@ import CartLogo from '../../public/shopping-cart-logo.svg';
 import CartLogoWhite from "../../public/shopping-cart-logo-white.svg"
 import { openShoppingList } from '../redux/features/ShoppingListModal.slice';
 import { useAppDispatch } from '@/redux/hooks';
+import Link from 'next/link';
 
 const NavBar = () => {
   const [greenNavbar, setGreenNavbar] = useState<boolean>(false);
@@ -35,9 +36,9 @@ const NavBar = () => {
         </div>
         <div className='h-full w-[45%] flex flex-row justify-center items-center'>
           <div className='h-full w-3/4 flex flex-row justify-between items-center text-lg text-white'>
-            <a href='/' className="cursor-pointer">Home</a>
-            <a href='search' className="cursor-pointer">Search</a>
-            <a>Support</a>
+            <Link href='/' className="cursor-pointer">Home</Link>
+            <Link href='search' className="cursor-pointer">Search</Link>
+            <div>Support</div>
             <button onClick={() => dispatch(openShoppingList())} className="cursor-pointer">Cart</button>
           </div>
         </div>

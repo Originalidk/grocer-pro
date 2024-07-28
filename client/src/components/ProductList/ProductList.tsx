@@ -22,7 +22,7 @@ const ProductList = (props: ProductListProps) => {
       <div className='w-full flex flex-row flex-wrap mt-5'>
         {products.map((product) => {
           return (
-          <ProductCard key={`${product.shop}-${product.name}-${product.id}`} {...product} />
+          <ProductCard key={`${product.shop}-${product.name}-${product.units}-${product.price}-${product.images[0]}`} {...product} />
         )})}
       </div>
     </div>

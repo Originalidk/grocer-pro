@@ -103,7 +103,7 @@ const Search = () => {
               <NavBarSearch {...navbarSearchProps} />
               <div className="h-[100vh] w-full flex flex-row disappear-animation">
                 <div className="h-full flex flex-col justify-center items-center bg-white white-slide-out-animation">
-                  <Image src={ShoppingOnlineSearch} alt="Shopping Online" className='h-3/5' />
+                  <Image src={ShoppingOnlineSearch} alt="Shopping Online" className='h-3/5 w-auto' />
                 </div>
                 <div className="h-full bg-green-700 green-slide-in-animation">
                   <div className="h-[90%] w-full flex flex-col justify-center items-center mt-[9%] disappear-animation">
@@ -138,7 +138,7 @@ const Search = () => {
               <NavBar />
               <div className="h-[100vh] w-full flex flex-row">
                 <div className="h-full w-1/2 flex flex-col justify-center items-center bg-white">
-                  <Image src={ShoppingOnlineSearch} alt="Shopping Online" className='h-3/5' priority={true} />
+                  <Image src={ShoppingOnlineSearch} alt="Shopping Online" className='h-3/5 w-auto' priority={true} />
                 </div>
                 <div className="h-full w-1/2 bg-green-700">
                   <div className="h-[90%] w-full flex flex-col justify-center items-center mt-[9%]">

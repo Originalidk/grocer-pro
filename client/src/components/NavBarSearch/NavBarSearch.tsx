@@ -7,6 +7,7 @@ import { Input } from '@/components/ui/input';
 import { NavBarSearchProps } from './NavBarSearch.type';
 import { useAppDispatch } from '@/redux/hooks';
 import { openShoppingList } from '@/redux/features/ShoppingListModal.slice';
+import Link from 'next/link';
 
 const NavBarSearch = (props: NavBarSearchProps) => {
   const [greenNavbar, setGreenNavbar] = useState<boolean>(false);
@@ -39,9 +40,9 @@ const NavBarSearch = (props: NavBarSearchProps) => {
         </div>
         <div className='h-full w-[45%] flex flex-row justify-center items-center'>
           <div className='h-full w-3/4 flex flex-row justify-between items-center text-lg text-white'>
-            <a href='/' className="cursor-pointer">Home</a>
-            <a href='search' className="cursor-pointer">Search</a>
-            <a>Support</a>
+            <Link href='/' className="cursor-pointer">Home</Link>
+            <Link href='search' className="cursor-pointer">Search</Link>
+            <div>Support</div>
             <a onClick={() => dispatch(openShoppingList())} className="cursor-pointer">Cart</a>
           </div>
         </div>

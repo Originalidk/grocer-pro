@@ -22,7 +22,7 @@ export default function Home() {
         </div>
         <div className="h-full w-full absolute z-10">
           <div className="h-full w-3/5 flex flex-col justify-center items-center relative bg-white rounded-bottom-right right-[5%]">
-            <Image src={ShoppingAppSVG} alt="Shopping Cart" className='h-3/5 mb-[5%]' priority={true} />
+            <Image src={ShoppingAppSVG} alt="Shopping Cart" className='h-3/5 w-auto mb-[5%]' priority={true} />
           </div>
         </div>
       </div>
