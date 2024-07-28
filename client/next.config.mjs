@@ -6,6 +6,9 @@ const nextConfig = {
             'img.rtacdn-os.com',
         ],
     },
+    env: {
+        NEXT_BACKEND_URL: process.env.NEXT_BACKEND_URL,
+    },
 };
 
 export default nextConfig;
