@@ -1,5 +1,4 @@
-const express = require('express');
-import { Request, Response } from 'express';
+import express, { Request, Response } from 'express';
 import { IError, MarketResults, ProductInfo } from './markets.type';
 import getFairPriceProducts from './fairprice/fairprice'
 import getColdStorageProducts from './coldstorage/coldstorage';
@@ -43,9 +42,6 @@ router.get("/shengshiong/img/:key", async (req: Request, res: Response) => {
         const response = await getShengSiongImage(key);
         res.setHeader('Content-Type', 'image/jpeg');
         res.send(Buffer.from(response.data, 'binary'));
-        // console.log(response.data)
-        // console.log(URL.createObjectURL(new Blob([response.data])))
-        // res.json(URL.createObjectURL(new Blob([response.data])));
     } catch (error) {
         if (error instanceof Error) {
             res.status(500).json({message: "Error occured", error: error.message});
