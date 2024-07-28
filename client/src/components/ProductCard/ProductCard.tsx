@@ -47,7 +47,7 @@ const ProductCard = (productProps: ProductCardProps) => {
       setImgURI(
         shop !== 'Sheng Siong' ? images[0] : (
           URL.createObjectURL(
-            (await axios.get<Blob>(`${process.env.NEXT_BACKEND_URL}/markets/shengshiong/img/${images[0]}`, {
+            (await axios.get<Blob>(`${process.env.NEXT_PUBLIC_BACKEND_URL}/markets/shengshiong/img/${images[0]}`, {
               responseType: 'blob',
             })).data
           )
