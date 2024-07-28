@@ -29,7 +29,7 @@ export default function Home() {
       <div className="h-[90vh] flex flex-col justify-center items-center bg-green-700">
         <div className='h-2/5 w-full flex flex-col justify-between items-center'>
           <h3 className='text-white font-bold text-6xl'>Did you know?</h3>
-            <p className='text-white text-3xl'>"In Singapore, the average household spends <span className='text-red-500 font-bold text-4xl'>$1200</span> per month on food"</p>
+            <p className='text-white text-3xl'>&#34;In Singapore, the average household spends <span className='text-red-500 font-bold text-4xl'>$1200</span> per month on food&#34;</p>
           <div className='text-center text-white text-lg text-wrap'>
             <p>With Grocer Pro, you can easily compare prices and shop like a pro, enabling you to make substantial savings.</p>
             <p className='my-2'>Embracing our price comparison tool not only stretches your dollar further, but also ensures you get the best value for your money.</p>

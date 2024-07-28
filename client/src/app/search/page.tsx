@@ -39,7 +39,7 @@ const Search = () => {
         const lastProductIndex = currentPage * productsPerPage;
         const firstProductIndex = lastProductIndex - productsPerPage;
         setCurrentProductList(productList.slice(firstProductIndex, lastProductIndex));
-    }, [currentPage, productList]);
+    }, [currentPage, productList, productsPerPage]);
 
     useEffect(() => {
         let listOfProducts: Array<ProductCardProps> = [];
